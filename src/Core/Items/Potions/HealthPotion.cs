@@ -6,7 +6,7 @@ namespace Core.Items.Potions
     {
         public HealthPotion() : base("Health Potion", ItemType.Consumable) { }
         
-        public override ActionResult Apply(Hero hero)
+        public override Result Apply(Hero hero)
         {
             var pointsToCure = Dice.WithFaces(4).Throw(2);
             hero.Cure(pointsToCure);

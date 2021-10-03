@@ -23,13 +23,13 @@ namespace Core.Enemies
             Damage = damage;
         }
 
-        public ActionResult Attack(Hero hero)
+        public Result Attack(Hero hero)
         {
             var attackScore = Dice.WithFaces(20).Throw(1) + Level;
 
             if (attackScore <= hero.Defense)
             {
-                return new ActionResult();
+                return new Result();
             }
 
             var pointsToLose = Damage();

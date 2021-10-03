@@ -50,7 +50,7 @@ namespace Core
             Inventory = new Inventory();
         }
         
-        public ActionResult UseItem(Item item)
+        public Result UseItem(Item item)
         {
             // TODO - throw corresponding exception
             if (!item.IsConsumable || !Inventory.Contains(item))
@@ -73,12 +73,12 @@ namespace Core
             }
         }
 
-        public ActionResult Attack(Enemy enemy)
+        public Result Attack(Enemy enemy)
         {
             var attackScore = Dice.WithFaces(20).Throw(1) + Level;
             if (attackScore <= enemy.Defense)
             {
-                return new ActionResult();
+                return new Result();
             }
 
             var pointsToLose = Inventory.Weapon.DoDamage();

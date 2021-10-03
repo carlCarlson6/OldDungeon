@@ -7,7 +7,7 @@ namespace Core.Items
         public string Identifier { get; }
         private string Name { get; }
         
-        private ItemType _itemType;
+        private readonly ItemType _itemType;
         public bool IsConsumable => _itemType == ItemType.Consumable;
         public bool IsArmour => _itemType == ItemType.Armour;
         public bool IsWeapon => _itemType == ItemType.Weapon;
@@ -20,7 +20,7 @@ namespace Core.Items
             _itemType = type;
         }
         
-        public abstract ActionResult Apply(Hero hero);
+        public abstract Result Apply(Hero hero);
 
         public abstract uint DoDamage();
 

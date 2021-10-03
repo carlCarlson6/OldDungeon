@@ -13,7 +13,7 @@ namespace Core.Items
         
         public override uint DoDamage() => _damageGenerator();
         
-        public override ActionResult Apply(Hero hero) => throw new NotImplementedException();
+        public override Result Apply(Hero hero) => throw new NotImplementedException();
         public override uint GetProtection() => throw new NotImplementedException();
     }
 }

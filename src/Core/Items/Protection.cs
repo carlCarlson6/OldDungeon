@@ -11,7 +11,7 @@ namespace Core.Items
 
         public override uint GetProtection() => _protection;
         
-        public override ActionResult Apply(Hero hero) => throw new System.NotImplementedException();
+        public override Result Apply(Hero hero) => throw new System.NotImplementedException();
         public override uint DoDamage() => throw new System.NotImplementedException();
     }
 }
