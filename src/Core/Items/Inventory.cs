@@ -2,14 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Core.Items.Weapons;
 
 namespace Core.Items
 {
     public class Inventory
     {
         public List<Item> Items { get; private set; }
-        public Item Weapon => Items.FirstOrDefault(item => item.IsWeapon) ?? new Fist();
+        public Item Weapon => Items.FirstOrDefault(item => item.IsWeapon) ?? WeaponFactory.CreateFist();
         public Item? Armour => Items.FirstOrDefault(item => item.IsArmour);
         public Item? Shield => Items.FirstOrDefault(item => item.IsShield);
 
