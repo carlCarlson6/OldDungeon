@@ -1,56 +1,30 @@
-using System;
-
 namespace Core.Items.Factories
 {
     public static class WeaponFactory
     {
-        public static Weapon CreateFist()
-        {
-            var damage = new Func<uint>(() => Dice.Throw(1,4,-1));
-            return new Weapon("My own fists", damage);
-        }
+        public static Weapon CreateFist() => 
+            new ("My own fists", () => Dice.Throw(1,4,-1));
+
+        public static Weapon CreateBaton() => 
+            new ("Baton", () => Dice.Throw(1,4));
+
+        public static Weapon CreateBattleAxe() => 
+            new ("Battle axe", () => Dice.Throw(1,8));
+
+        public static Weapon CreateClaymore() => 
+            new ("Claymore", () => Dice.Throw(1,10));
         
-        public static Weapon CreateBaton()
-        {
-            var damage = new Func<uint>(() => Dice.Throw(1,4));
-            return new Weapon("Baton", damage);
-        }
+        public static Weapon CreateDagger() => 
+            new ("Dagger", () => Dice.Throw(1,4));
         
-        public static Weapon CreateBattleAxe()
-        {
-            var damage = new Func<uint>(() => Dice.Throw(1,8));
-            return new Weapon("Battle axe", damage);
-        }
+        public static Weapon CreateHeavyMaze() => 
+            new ("Heavy maze", () => Dice.Throw(1,6));
         
-        public static Weapon CreateClaymore()
-        {
-            var damage = new Func<uint>(() => Dice.Throw(1,10));
-            return new Weapon("Claymore", damage);
-        }
+        public static Weapon CreateSword() => 
+            new ("Sword", () => Dice.Throw(1,8));
         
-        public static Weapon CreateDagger()
-        {
-            var damage = new Func<uint>(() => Dice.Throw(1,4));
-            return new Weapon("Dagger", damage);
-        }
-        
-        public static Weapon CreateHeavyMaze()
-        {
-            var damage = new Func<uint>(() => Dice.Throw(1,6));
-            return new Weapon("Heavy maze", damage);
-        }
-        
-        public static Weapon CreateSword()
-        {
-            var damage = new Func<uint>(() => Dice.Throw(1,8));
-            return new Weapon("Sword", damage);
-        }
-        
-        public static Weapon CreateWarHammer()
-        {
-            var damage = new Func<uint>(() => Dice.Throw(1,4, +1));
-            return new Weapon("War hammer", damage);
-        }
+        public static Weapon CreateWarHammer() => 
+            new ("War hammer", () => Dice.Throw(1,4, +1));
         
     }
 }
