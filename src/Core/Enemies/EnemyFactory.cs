@@ -22,8 +22,8 @@ namespace Core.Enemies
             {
                 name = "Skeleton";
             }
-            
-            var damage = new Func<uint>(() => Dice.WithFaces(6).Throw(1));
+
+            var damage = new Func<uint>(() => Dice.Throw(1, 6));
             var skeleton = new Enemy(name, 2, 11, damage);
             return skeleton;
         }
@@ -35,7 +35,7 @@ namespace Core.Enemies
                 name = "Goblin";
             }
             
-            var damage = new Func<uint>(() => Dice.WithFaces(6).Throw(1));
+            var damage = new Func<uint>(() => Dice.Throw(1, 6));
             var goblin = new Enemy(name, 1, 12, damage);
             return goblin;
         }
@@ -47,7 +47,7 @@ namespace Core.Enemies
                 name = "Kobold";
             }
             
-            var damage = new Func<uint>(() => Dice.WithFaces(6).Throw(1));
+            var damage = new Func<uint>(() => Dice.Throw(1, 6));
             var kobold = new Enemy(name, 0, 13, damage);
             return kobold;
         }

@@ -75,7 +75,7 @@ namespace Core
 
         public Result Attack(Enemy enemy)
         {
-            var attackScore = Dice.WithFaces(20).Throw(1) + Level;
+            var attackScore = Dice.Throw(1, 20, (int)Level);
             if (attackScore <= enemy.Defense)
             {
                 return new Result("The monster has avoided the attack");

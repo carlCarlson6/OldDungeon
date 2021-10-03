@@ -18,14 +18,14 @@ namespace Core.Enemies
         {
             Name = name;
             Level = level;
-            HealthPoints = level != 0 ? Dice.WithFaces(8).Throw(Level) : Dice.WithFaces(4).Throw(1);
+            HealthPoints = level != 0 ? Dice.Throw(Level,8) : Dice.Throw(1,4);
             Defense = defense;
             Damage = damage;
         }
 
         public Result Attack(Hero hero)
         {
-            var attackScore = Dice.WithFaces(20).Throw(1) + Level;
+            var attackScore = Dice.Throw(1, 20, (int)Level);
 
             if (attackScore <= hero.Defense)
             {
@@ -35,7 +35,8 @@ namespace Core.Enemies
             var pointsToLose = Damage();
             hero.SufferDamage(pointsToLose);
 
-            throw new NotImplementedException();
+            // TODO - insert corresponding message
+            return new Result("<insert corresponding message>");
         }
     }
 }

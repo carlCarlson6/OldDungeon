@@ -1,5 +1,3 @@
-using System;
-
 namespace Core
 {
     // TODO - define returns properties
