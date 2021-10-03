@@ -17,6 +17,8 @@ namespace Core.Items
         // TODO - throw corresponding exception
         public Inventory(List<Item> items) => Items = items ?? throw new NotSupportedException();
 
+        public void AddItem(Item item) => Items.Add(item);
+        
         public bool Contains(Item item) => Items.Any(i => i.IsSameItem(item));
 
         public void Remove(Item item)
