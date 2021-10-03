@@ -7,6 +7,10 @@ namespace Core.Enemies
         public string Name { get; }
         public uint Level { get; }
         public uint HealthPoints { get; private set; }
+
+        public bool IsAlive => HealthPoints > 0;
+        public bool IsDead => !IsAlive;
+        
         public uint Defense { get; }
         public Func<uint> Damage { get; } 
 
@@ -19,17 +23,19 @@ namespace Core.Enemies
             Damage = damage;
         }
 
-        public void Attack(Hero hero)
+        public ActionResult Attack(Hero hero)
         {
             var attackScore = Dice.WithFaces(20).Throw(1) + Level;
 
             if (attackScore <= hero.Defense)
             {
-                return;
+                return new ActionResult();
             }
 
             var pointsToLose = Damage();
             hero.SufferDamage(pointsToLose);
+
+            throw new NotImplementedException();
         }
     }
 }
