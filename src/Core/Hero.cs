@@ -78,7 +78,7 @@ namespace Core
             var attackScore = Dice.WithFaces(20).Throw(1) + Level;
             if (attackScore <= enemy.Defense)
             {
-                return new Result();
+                return new Result("The monster has avoided the attack");
             }
 
             var pointsToLose = Inventory.Weapon.DoDamage();

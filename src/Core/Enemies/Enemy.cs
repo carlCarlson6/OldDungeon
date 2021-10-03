@@ -29,7 +29,7 @@ namespace Core.Enemies
 
             if (attackScore <= hero.Defense)
             {
-                return new Result();
+                return new Result("The hero has avoided the monster attack");
             }
 
             var pointsToLose = Damage();
