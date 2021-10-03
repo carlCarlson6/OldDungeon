@@ -13,11 +13,12 @@ namespace Core
         
         public uint HealthPoints { get; private set; }
         private uint MaxHealPoints => (uint)(8 + Constitution.Modifier);
+        public bool IsAlive => HealthPoints > 0;
+        public bool IsDead => !IsAlive;
         
         public uint AttackAtClose => (uint)Strength.Modifier;
         public uint AttackAtRange => (uint)Dexterity.Modifier;
-        
-        public uint Defense => (uint)(10 + Dexterity.Modifier); // add modifier of armour and shield
+        public uint Defense => CalculateDefense();
         public uint Instinct => 1;
         public uint Power => 0;
 
@@ -51,7 +52,7 @@ namespace Core
 
         public static Hero CreateRandomHero(string name) => new Hero(name);
 
-        public void UseItem(Item item)
+        public ActionResult UseItem(Item item)
         {
             // TODO - throw corresponding exception
             if (!item.IsConsumable || !Inventory.Contains(item))
@@ -59,8 +60,10 @@ namespace Core
                 throw new NotSupportedException();
             }
 
-            item.Apply(this);
+            var actionResult = item.Apply(this);
             Inventory.Remove(item);
+
+            return actionResult;
         }
 
         public void Cure(uint healthPointsToCure)
@@ -72,12 +75,12 @@ namespace Core
             }
         }
 
-        public void Attack(Enemy enemy)
+        public ActionResult Attack(Enemy enemy)
         {
             var attackScore = Dice.WithFaces(20).Throw(1) + Level;
             if (attackScore <= enemy.Defense)
             {
-                return;
+                return new ActionResult();
             }
 
             var pointsToLose = Inventory.Weapon.DoDamage();
@@ -85,6 +88,14 @@ namespace Core
         }
 
         public void SufferDamage(uint healthPointToReduce) => HealthPoints -= healthPointToReduce;
+
+        private uint CalculateDefense()
+        {
+            var basicDefense = (uint)(10 + Dexterity.Modifier);
+            var armourDefense = Inventory.Armour?.GetProtection() ?? 0; 
+            var shieldDefense = Inventory.Shield?.GetProtection() ?? 0;
+            return basicDefense + armourDefense + shieldDefense;
+        }
 
     }
 }
