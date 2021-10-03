@@ -4,6 +4,7 @@ namespace Core.Items
     {
         Consumable,
         Weapon,
-        Armour
+        Armour,
+        Shield
     }
 }

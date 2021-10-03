@@ -4,9 +4,4 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Items\Gear\Armours" />
-      <Folder Include="Items\Gear\Weapons" />
-    </ItemGroup>
-
 </Project>
