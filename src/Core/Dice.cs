@@ -19,7 +19,7 @@ namespace Core
         
         public uint Throw(uint numberDices) => (uint)((uint)(new Random().Next(1, (int)NumberFaces) * numberDices) + Bonus);
         
-        public static uint Throw(uint numberFaces, uint numberDices, uint bonus = 0) =>
+        public static uint Throw(uint numberFaces, uint numberDices, int bonus = 0) =>
             (uint)((uint)(new Random().Next(1, (int)numberFaces) * numberDices) + bonus);
     }
 }
