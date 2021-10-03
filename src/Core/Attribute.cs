@@ -17,7 +17,7 @@ namespace Core
 
         public static Attribute GenerateRandomAttribute()
         {
-            var attributeValue = Dice.Throw(3, 6);
+            var attributeValue = Dice.Roll(3, 6, 0);
             return new Attribute(attributeValue);
         }
 

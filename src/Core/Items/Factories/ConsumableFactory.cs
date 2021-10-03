@@ -11,7 +11,7 @@ namespace Core.Items.Factories
         {
             var consumableApplier = new Func<Hero, Result>(hero =>
             {
-                var pointsToCure = Dice.Throw(1,6);
+                var pointsToCure = Dice.Roll(6);
                 hero.Cure(pointsToCure);
                 return GenerateCureResult(pointsToCure);
             });
@@ -22,7 +22,7 @@ namespace Core.Items.Factories
         {
             var consumableApplier = new Func<Hero, Result>(hero =>
             {
-                var pointsToCure = Dice.Throw(2,4);
+                var pointsToCure = Dice.Roll(4);
                 hero.Cure(pointsToCure);
                 return GenerateCureResult(pointsToCure);
             });
@@ -33,7 +33,7 @@ namespace Core.Items.Factories
         {
             var consumableApplier = new Func<Hero, Result>(hero =>
             {
-                var pointsToCure = Dice.Throw(2,4,2);
+                var pointsToCure = Dice.Roll(2,4,2);
                 hero.Cure(pointsToCure);
                 return GenerateCureResult(pointsToCure);
             });
