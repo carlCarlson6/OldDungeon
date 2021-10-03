@@ -4,7 +4,7 @@ namespace Core.Items.Weapons
 {
     public class Dagger : Item
     {
-        public Dagger() : base("My own fists", ItemType.Weapon) { }
+        public Dagger() : base(nameof(Dagger), ItemType.Weapon) { }
 
         public override uint DoDamage() => Dice.Throw(1, 4);
         

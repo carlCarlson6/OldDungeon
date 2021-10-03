@@ -4,7 +4,7 @@ namespace Core.Items.Weapons
 {
     public class HeavyMaze : Item
     {
-        public HeavyMaze() : base("My own fists", ItemType.Weapon) { }
+        public HeavyMaze() : base("Heavy maze", ItemType.Weapon) { }
 
         public override uint DoDamage() => Dice.Throw(1, 6);
         

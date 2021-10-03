@@ -4,7 +4,7 @@ namespace Core.Items.Weapons
 {
     public class WarHammer : Item
     {
-        public WarHammer() : base("My own fists", ItemType.Weapon) { }
+        public WarHammer() : base("War hammer", ItemType.Weapon) { }
 
         public override uint DoDamage() => Dice.Throw(1, 4);
         
