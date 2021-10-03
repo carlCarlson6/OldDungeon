@@ -17,8 +17,9 @@ namespace Core.Test.Items
             hero.Inventory.AddItem(potion);
 
             var healthBeforePotion = hero.HealthPoints;
-            
-            hero.UseItem(potion);
+
+            var result = hero.UseItem(potion);
+            var curedPoints = result.Parameters; // TODO recover cure points
 
             Check.That(hero.HealthPoints).IsNotEqualTo(healthBeforePotion);
         }
