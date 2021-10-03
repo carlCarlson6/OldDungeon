@@ -85,7 +85,7 @@ namespace Core
             throw new NotImplementedException();
         }
 
-        public void SufferDamage(uint healthPointToReduce) => HealthPoints -= healthPointToReduce;
+        public void SufferDamage(uint healthPointsToReduce) => HealthPoints -= healthPointsToReduce;
 
         private uint CalculateDefense()
         {
