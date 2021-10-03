@@ -6,10 +6,12 @@ namespace Core
     public class Result
     {
         public string Message { get; }
-
-        public Result(string message)
+        public object Parameters { get; }
+        
+        public Result(string message, object parameters = null!)
         {
             Message = message;
+            Parameters = parameters is not null ? parameters : new { };
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Core.Items.Factories
     public static class ConsumableFactory
     {
         private static Result GenerateCureResult(uint pointsToCure) => 
-            new Result($" The hero has cured ${pointsToCure} health points");
+            new Result($" The hero has cured ${pointsToCure} health points", new { CuredPoints = pointsToCure });
 
         public static Consumable CreateSmallHealthPotion()
         {
