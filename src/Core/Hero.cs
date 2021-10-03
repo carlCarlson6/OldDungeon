@@ -31,7 +31,7 @@ namespace Core
 
         public Inventory Inventory { get; }
         
-        private Hero(string name)
+        public Hero(string name)
         {
             Name = name;
             
@@ -49,9 +49,7 @@ namespace Core
 
             Inventory = new Inventory();
         }
-
-        public static Hero CreateRandomHero(string name) => new Hero(name);
-
+        
         public ActionResult UseItem(Item item)
         {
             // TODO - throw corresponding exception
