@@ -1,0 +1,14 @@
+# file must start with a version
+version: '3'
+# list the services
+services: 
+  # service names, then service configuration
+  gqlApi-sqlserver:
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "pa55w0rd!"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+    
