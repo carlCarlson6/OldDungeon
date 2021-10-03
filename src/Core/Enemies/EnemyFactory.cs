@@ -23,7 +23,7 @@ namespace Core.Enemies
                 name = "Skeleton";
             }
 
-            var damage = new Func<uint>(() => Dice.Throw(1, 6));
+            var damage = Dice.ThrowAsFunction(1, 6);
             var skeleton = new Enemy(name, 2, 11, damage);
             return skeleton;
         }
@@ -35,7 +35,7 @@ namespace Core.Enemies
                 name = "Goblin";
             }
             
-            var damage = new Func<uint>(() => Dice.Throw(1, 6));
+            var damage = Dice.ThrowAsFunction(1, 6);
             var goblin = new Enemy(name, 1, 12, damage);
             return goblin;
         }
@@ -47,7 +47,7 @@ namespace Core.Enemies
                 name = "Kobold";
             }
             
-            var damage = new Func<uint>(() => Dice.Throw(1, 6));
+            var damage = Dice.ThrowAsFunction(1, 6);
             var kobold = new Enemy(name, 0, 13, damage);
             return kobold;
         }
@@ -59,7 +59,7 @@ namespace Core.Enemies
                 name = "Necrophagus";
             }
             
-            var damage = new Func<uint>(() => Dice.Throw(1, 6));
+            var damage = Dice.ThrowAsFunction(1, 6);
             var necrophagus = new Enemy(name, 2, 13, damage);
             return necrophagus;
         }
@@ -71,7 +71,7 @@ namespace Core.Enemies
                 name = "Ork";
             }
             
-            var damage = new Func<uint>(() => Dice.Throw(1, 8, 1));
+            var damage = Dice.ThrowAsFunction(1, 8, 1);
             var ork = new Enemy(name, 2, 13, damage);
             return ork;
         }
@@ -83,7 +83,7 @@ namespace Core.Enemies
                 name = "Giant Rat";
             }
             
-            var damage = new Func<uint>(() => Dice.Throw(1, 4));
+            var damage = Dice.ThrowAsFunction(1, 4);
             var giantRat = new Enemy(name, 0, 10, damage);
             return giantRat;
         }
@@ -95,7 +95,7 @@ namespace Core.Enemies
                 name = "Zombie";
             }
             
-            var damage = new Func<uint>(() => Dice.Throw(1, 6));
+            var damage = Dice.ThrowAsFunction(1, 6);
             var zombie = new Enemy(name, 2, 11, damage);
             return zombie;
         }
