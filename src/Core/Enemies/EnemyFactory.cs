@@ -2,7 +2,7 @@ using System;
 
 namespace Core.Enemies
 {
-    public class EnemyFactory
+    public static class EnemyFactory
     {
         public static Enemy CreateGiantSpider(string name = null)
         {

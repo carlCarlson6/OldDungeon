@@ -17,6 +17,6 @@ namespace Core.Items.Potions
 
         // TODO - throw corresponding exception
         public override uint DoDamage() => throw new NotSupportedException();
-        public override uint GetProtection() => throw new NotImplementedException();
+        public override uint GetProtection() => throw new NotSupportedException();
     }
 }
