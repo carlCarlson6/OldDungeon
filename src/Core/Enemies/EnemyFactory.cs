@@ -4,7 +4,7 @@ namespace Core.Enemies
 {
     public static class EnemyFactory
     {
-        public static Enemy CreateGiantSpider(string name = null)
+        public static Enemy CreateGiantSpider(string name = null!)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -16,7 +16,7 @@ namespace Core.Enemies
             return giantSpider;
         }
 
-        public static Enemy CreateSkeleton(string name = null)
+        public static Enemy CreateSkeleton(string name = null!)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -28,7 +28,7 @@ namespace Core.Enemies
             return skeleton;
         }
         
-        public static Enemy CreateGoblin(string name = null)
+        public static Enemy CreateGoblin(string name = null!)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -40,7 +40,7 @@ namespace Core.Enemies
             return goblin;
         }
         
-        public static Enemy CreateKobold(string name = null)
+        public static Enemy CreateKobold(string name = null!)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -52,7 +52,7 @@ namespace Core.Enemies
             return kobold;
         }
         
-        public static Enemy CreateNecrophagus(string name = null)
+        public static Enemy CreateNecrophagus(string name = null!)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -64,7 +64,7 @@ namespace Core.Enemies
             return necrophagus;
         }
         
-        public static Enemy CreateOrk(string name = null)
+        public static Enemy CreateOrk(string name = null!)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -76,7 +76,7 @@ namespace Core.Enemies
             return ork;
         }
         
-        public static Enemy CreateGiantRat(string name = null)
+        public static Enemy CreateGiantRat(string name = null!)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -88,7 +88,7 @@ namespace Core.Enemies
             return giantRat;
         }
         
-        public static Enemy CreateZombie(string name = null)
+        public static Enemy CreateZombie(string name = null!)
         {
             if (string.IsNullOrEmpty(name))
             {
