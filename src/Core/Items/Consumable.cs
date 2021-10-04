@@ -13,7 +13,7 @@ namespace Core.Items
 
         public override Result Apply(Hero hero) => _consumableApplier(hero);
 
-        public override uint DoDamage() => throw new NotImplementedException();
-        public override uint GetProtection() => throw new NotImplementedException();
+        public override int DoDamage() => throw new NotImplementedException();
+        public override int GetProtection() => throw new NotImplementedException();
     }
 }

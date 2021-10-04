@@ -11,12 +11,12 @@ namespace Core
         public uint Level { get; }
         public uint ExperiencePoints { get; }
         
-        public uint HealthPoints { get; private set; }
-        private uint MaxHealPoints => (uint)(8 + Constitution.Modifier);
+        public int HealthPoints { get; private set; }
+        private int MaxHealPoints => 8 + Constitution.Modifier;
         public bool IsAlive => HealthPoints > 0;
         public bool IsDead => !IsAlive;
 
-        public uint Defense => CalculateDefense();
+        public int Defense => CalculateDefense();
 
         public Attribute Strength { get; }
         public Attribute Dexterity { get; }
@@ -60,7 +60,7 @@ namespace Core
             return actionResult;
         }
 
-        public void Cure(uint healthPointsToCure)
+        public void Cure(int healthPointsToCure)
         {
             HealthPoints += healthPointsToCure;
             if (HealthPoints > MaxHealPoints)
@@ -81,11 +81,11 @@ namespace Core
             throw new NotImplementedException();
         }
 
-        public void SufferDamage(uint healthPointsToReduce) => HealthPoints -= healthPointsToReduce;
+        public void SufferDamage(int healthPointsToReduce) => HealthPoints -= healthPointsToReduce;
 
-        private uint CalculateDefense()
+        private int CalculateDefense()
         {
-            var basicDefense = (uint)(10 + Dexterity.Modifier);
+            var basicDefense = 10 + Dexterity.Modifier;
             var armourDefense = Inventory.Armour?.GetProtection() ?? 0; 
             var shieldDefense = Inventory.Shield?.GetProtection() ?? 0;
             return basicDefense + armourDefense + shieldDefense;

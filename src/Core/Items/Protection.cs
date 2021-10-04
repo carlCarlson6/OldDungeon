@@ -2,16 +2,16 @@ namespace Core.Items
 {
     public class Protection : Item
     {
-        private readonly uint _protection;
+        private readonly int _protection;
         
-        public Protection(string name, ItemType itemType, uint protection) : base(name, itemType)
+        public Protection(string name, ItemType itemType, int protection) : base(name, itemType)
         {
             _protection = protection;
         }
 
-        public override uint GetProtection() => _protection;
+        public override int GetProtection() => _protection;
         
         public override Result Apply(Hero hero) => throw new System.NotImplementedException();
-        public override uint DoDamage() => throw new System.NotImplementedException();
+        public override int DoDamage() => throw new System.NotImplementedException();
     }
 }

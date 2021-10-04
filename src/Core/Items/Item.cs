@@ -22,9 +22,9 @@ namespace Core.Items
         
         public abstract Result Apply(Hero hero);
 
-        public abstract uint DoDamage();
+        public abstract int DoDamage();
 
-        public abstract uint GetProtection();
+        public abstract int GetProtection();
         
         public bool IsSameItem(Item item) => Identifier.Equals(item.Identifier);
 

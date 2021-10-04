@@ -11,7 +11,7 @@ namespace Core.Enemies
                 name = "Giant Spider";
             }
             
-            var damage = new Func<uint>(() => 1);
+            var damage = new Func<int>(() => 1);
             var giantSpider = new Enemy(name, 1, 11, damage);
             return giantSpider;
         }

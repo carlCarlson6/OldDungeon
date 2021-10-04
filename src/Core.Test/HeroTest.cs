@@ -13,7 +13,7 @@ namespace Core.Test
             
             var healthBefore = hero.HealthPoints;
 
-            const uint healthPointsToReduce = 5;
+            const int healthPointsToReduce = 5;
             hero.SufferDamage(healthPointsToReduce);
 
             Check.That(healthBefore).IsNotEqualTo(hero.HealthPoints);

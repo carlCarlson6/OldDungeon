@@ -2,9 +2,9 @@ namespace Core
 {
     public class Attribute
     {
-        public uint Value { get; }
+        public int Value { get; }
         
-        public Attribute(uint value) => Value = value;
+        public Attribute(int value) => Value = value;
         
         public int Modifier => Value switch
         {
