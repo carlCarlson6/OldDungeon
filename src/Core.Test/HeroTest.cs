@@ -7,7 +7,7 @@ namespace Core.Test
     public class HeroTest
     {
         [TestMethod]
-        public void WhenHero_SufferDamage_HisHealthIsReduced()
+        public void WhenHero_SuffersDamage_HisHealthIsReduced()
         {
             var hero = new Hero("test_hero");
             
