@@ -2,7 +2,7 @@ using Core.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
 
-namespace Core.Test.Items
+namespace Core.Test
 {
     [TestClass]
     public class ConsumableTest
