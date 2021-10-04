@@ -9,7 +9,6 @@ namespace Core
 {
     public static class Dice
     {
-        // TODO - finish implementation
         public static int Roll(string rollIndication)
         {
             var cleanRollIndication = CleanupRollIndication(rollIndication);
@@ -30,30 +29,38 @@ namespace Core
         private static string CleanupRollIndication(string rollIndication) => 
             rollIndication.ToLower().Replace(" ", "");
 
-        private static bool ValidateRollIndicationFormat(string rollIndication) =>
-            Regex.IsMatch(rollIndication, @"\d+d\d+([+,-]?\d+)?");
+        public static bool ValidateRollIndicationFormat(string rollIndication) => 
+            Regex.IsMatch(rollIndication, @"^\d+d\d+([+,-]?\d+)?$");
 
-        private static (int Dices, int Faces, int Bonus) ExtractRollValues(string rollIndication)
+        public static (int Dices, int Faces, int Bonus) ExtractRollValues(string rollIndication)
         {
             var dices = rollIndication.Split('d').FirstOrDefault().ToInt32();
-            var faces = rollIndication.Split('d')[1].Split('+', '-').FirstOrDefault().ToInt32();
+            var faces = rollIndication.Split('d').Second().Split('+', '-').FirstOrDefault().ToInt32();
+            var bonus = rollIndication.Split('+', '-').SecondOrDefault().ToInt32();
 
-            // TODO - extract bonus if exists
-            return (dices, faces, 0);
+            if (rollIndication.Contains('-'))
+            {
+                bonus = -bonus;
+            }
+            
+            return (dices, faces, bonus);
         }
         
         private static bool ValidateRollValues(int numberDices, int numberFaces) => numberDices > 0 && numberFaces > 0;
         
         public static Func<int> RollAsFunction(string rollIndication) =>
             () => Roll(rollIndication);
-        
-        // TODO - make each throw of the dice independent when numberDices > 1, also check that numberDices is not == 0
-        public static int Roll(int numberDices, int numberFaces, int bonus = 0) => 
-            Range(numberDices)
-                .Aggregate((_, _) => new Random().Next(1, numberFaces))
-            + bonus;
 
-        public static Func<int> RollAsFunction(int numberDices, int numberFaces, int bonus = 0) => 
-            () => Roll(numberDices, numberFaces, bonus);
+        private static int Roll(int numberDices, int numberFaces, int bonus = 0)
+        {
+            if (numberFaces is 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(numberFaces));
+            }
+            
+            return Range(numberDices)
+                       .Aggregate((_, _) => new Random().Next(1, numberFaces))
+                   + bonus;
+        }
     }
 }
