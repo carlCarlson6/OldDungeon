@@ -15,12 +15,8 @@ namespace Core
         private uint MaxHealPoints => (uint)(8 + Constitution.Modifier);
         public bool IsAlive => HealthPoints > 0;
         public bool IsDead => !IsAlive;
-        
-        public uint AttackAtClose => (uint)Strength.Modifier;
-        public uint AttackAtRange => (uint)Dexterity.Modifier;
+
         public uint Defense => CalculateDefense();
-        public uint Instinct => 1;
-        public uint Power => 0;
 
         public Attribute Strength { get; }
         public Attribute Dexterity { get; }
@@ -75,7 +71,7 @@ namespace Core
 
         public Result Attack(Enemy enemy)
         {
-            var attackScore = Dice.Roll(20, (int)Level);
+            var attackScore = Dice.Roll($"1d20{Strength.ModifierAsString()}");
             if (attackScore <= enemy.Defense)
             {
                 return new Result("The monster has avoided the attack");

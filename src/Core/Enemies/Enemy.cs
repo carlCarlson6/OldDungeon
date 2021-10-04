@@ -18,14 +18,14 @@ namespace Core.Enemies
         {
             Name = name;
             Level = level;
-            HealthPoints = level != 0 ? Dice.Roll(Level,8) : Dice.Roll(4);
+            HealthPoints = level != 0 ? Dice.Roll($"{level}d8") : Dice.Roll("1d4");
             Defense = defense;
             Damage = damage;
         }
 
         public Result Attack(Hero hero)
         {
-            var attackScore = Dice.Roll(20, +(int)Level);
+            var attackScore = Dice.Roll($"1d20+${Level}");
 
             if (attackScore <= hero.Defense)
             {

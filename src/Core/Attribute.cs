@@ -15,9 +15,11 @@ namespace Core
             >= 18 => 2
         };
 
+        public string ModifierAsString() => Modifier >= 0 ? $"+{Modifier}" : $"{Modifier}";
+
         public static Attribute GenerateRandomAttribute()
         {
-            var attributeValue = Dice.Roll(3, 6, 0);
+            var attributeValue = Dice.Roll("3d6");
             return new Attribute(attributeValue);
         }
 
