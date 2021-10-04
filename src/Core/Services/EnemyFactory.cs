@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.Enemies
+namespace Core.Services
 {
     public static class EnemyFactory
     {

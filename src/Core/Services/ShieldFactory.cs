@@ -1,4 +1,4 @@
-namespace Core.Items.Factories
+namespace Core.Services
 {
     public static class ShieldFactory
     {

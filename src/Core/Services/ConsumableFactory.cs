@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.Items.Factories
+namespace Core.Services
 {
     public static class ConsumableFactory
     {

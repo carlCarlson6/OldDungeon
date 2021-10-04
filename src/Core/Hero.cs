@@ -1,6 +1,4 @@
 using System;
-using Core.Enemies;
-using Core.Items;
 
 namespace Core
 {

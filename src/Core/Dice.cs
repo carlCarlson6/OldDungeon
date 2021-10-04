@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Core.Exceptions;
 using Core.Extensions;
-using static System.Linq.Enumerable;
+using static Core.Extensions.EnumerableExtensions;
 
 namespace Core
 {
@@ -30,8 +30,8 @@ namespace Core
         private static string CleanupRollIndication(string rollIndication) => 
             rollIndication.ToLower().Replace(" ", "");
 
-        private static bool ValidateRollIndicationFormat(string rollIndication) => 
-            new Regex(@"\d+d\d+([+,-]?\d+)?").IsMatch(rollIndication);
+        private static bool ValidateRollIndicationFormat(string rollIndication) =>
+            Regex.IsMatch(rollIndication, @"\d+d\d+([+,-]?\d+)?");
 
         private static (int Dices, int Faces, int Bonus) ExtractRollValues(string rollIndication)
         {
@@ -49,10 +49,9 @@ namespace Core
         
         // TODO - make each throw of the dice independent when numberDices > 1, also check that numberDices is not == 0
         public static int Roll(int numberDices, int numberFaces, int bonus = 0) => 
-            Range(1, numberDices)
+            Range(numberDices)
                 .Aggregate((_, _) => new Random().Next(1, numberFaces))
             + bonus;
-
 
         public static Func<int> RollAsFunction(int numberDices, int numberFaces, int bonus = 0) => 
             () => Roll(numberDices, numberFaces, bonus);

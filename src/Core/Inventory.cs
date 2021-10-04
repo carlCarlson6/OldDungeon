@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Core.Items.Factories;
+using Core.Services;
 
-namespace Core.Items
+namespace Core
 {
     public class Inventory
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.Items
+namespace Core
 {
     public class Weapon : Item
     {
