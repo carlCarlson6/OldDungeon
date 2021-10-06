@@ -36,7 +36,9 @@ namespace Core
             hero.SufferDamage(pointsToLose);
 
             // TODO - insert corresponding message
-            return new Result("<insert corresponding message>");
+            return new Result("The enemy attacked the hero");
         }
+
+        public void SufferDamage(int healthPointsToReduce) => HealthPoints -= healthPointsToReduce;
     }
 }

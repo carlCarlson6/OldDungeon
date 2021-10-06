@@ -10,7 +10,7 @@ namespace Core
         public uint ExperiencePoints { get; }
         
         public int HealthPoints { get; private set; }
-        private int MaxHealPoints => 8 + Constitution.Modifier;
+        public int MaxHealPoints => 8 + Constitution.Modifier;
         public bool IsAlive => HealthPoints > 0;
         public bool IsDead => !IsAlive;
 

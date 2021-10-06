@@ -82,6 +82,16 @@ namespace Core.Test
             Check.That(faces).IsEqualTo(8);
             Check.That(bonus).IsEqualTo(-5);
         }
+
+        [TestMethod]
+        public void When_Roll3d6_ShouldReturnNumber_Between3And18()
+        {
+            var result = Dice.Roll("3d6");
+            Check.That(result)
+                .IsStrictlyGreaterThan(2)
+                .And
+                .IsStrictlyLessThan(19);
+        }
         
     }
 }

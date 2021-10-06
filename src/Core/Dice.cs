@@ -23,7 +23,8 @@ namespace Core
                 throw new InvalidRollFormatException();
             }
 
-            return Roll(dices, faces, bonus);
+            var roll = Roll(dices, faces, bonus);
+            return roll;
         }
         
         private static string CleanupRollIndication(string rollIndication) => 
@@ -57,9 +58,11 @@ namespace Core
             {
                 throw new ArgumentOutOfRangeException(nameof(numberFaces));
             }
-            
+
             return Range(numberDices)
-                       .Aggregate((_, _) => new Random().Next(1, numberFaces))
+                .Select(_ => new Random().Next(1, numberFaces))
+                .ToList()
+                .Sum() 
                    + bonus;
         }
     }

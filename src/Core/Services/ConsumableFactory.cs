@@ -4,12 +4,12 @@ namespace Core.Services
 {
     public static class ConsumableFactory
     {
-        private static Result GenerateCureResult(int pointsToCure) => 
-            new ($" The hero has cured ${pointsToCure} health points", new { CuredPoints = pointsToCure });
+        private static ConsumableResult GenerateCureResult(int pointsToCure) => 
+            new ($" The hero has cured ${pointsToCure} health points", pointsToCure );
 
         public static Consumable CreateSmallHealthPotion()
         {
-            var consumableApplier = new Func<Hero, Result>(hero =>
+            var consumableApplier = new Func<Hero, ConsumableResult>(hero =>
             {
                 var pointsToCure = Dice.Roll("1d6");
                 hero.Cure(pointsToCure);
@@ -20,7 +20,7 @@ namespace Core.Services
         
         public static Consumable CreateHealthPotion()
         {
-            var consumableApplier = new Func<Hero, Result>(hero =>
+            var consumableApplier = new Func<Hero, ConsumableResult>(hero =>
             {
                 var pointsToCure = Dice.Roll("2d4");
                 hero.Cure(pointsToCure);
@@ -31,7 +31,7 @@ namespace Core.Services
         
         public static Consumable CreateLargeHealthPotion()
         {
-            var consumableApplier = new Func<Hero, Result>(hero =>
+            var consumableApplier = new Func<Hero, ConsumableResult>(hero =>
             {
                 var pointsToCure = Dice.Roll("2d4+2");
                 hero.Cure(pointsToCure);
